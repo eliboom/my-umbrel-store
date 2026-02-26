@@ -8,6 +8,51 @@ services:
 
   server:
     image: twentycrm/twenty:latest
-    restart: on-failure
+    volumes:
+      - server-local-data:/app/packages/twenty-server/.local-storage
     environment:
-      - PORT=3000
+      NODE_PORT: 3000
+      PG_DATABASE_URL: postgres://postgres:twenty@droopie-twenty_db_1:5432/default
+      SERVER_URL: http://umbrel.local:3000
+      REDIS_URL: redis://droopie-twenty_redis_1:6379
+      DISABLE_DB_MIGRATIONS: "false"
+      APP_SECRET: twenty_secret_Umbrel_AppStore_12345
+    depends_on:
+      - db
+      - redis
+    restart: always
+
+  worker:
+    image: twentycrm/twenty:latest
+    volumes:
+      - server-local-data:/app/packages/twenty-server/.local-storage
+    command: ["yarn", "worker:prod"]
+    environment:
+      PG_DATABASE_URL: postgres://postgres:twenty@droopie-twenty_db_1:5432/default
+      SERVER_URL: http://umbrel.local:3000
+      REDIS_URL: redis://droopie-twenty_redis_1:6379
+      DISABLE_DB_MIGRATIONS: "true"
+      APP_SECRET: twenty_secret_Umbrel_AppStore_12345
+    depends_on:
+      - db
+      - redis
+      - server
+    restart: always
+
+  db:
+    image: postgres:16
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: default
+      POSTGRES_PASSWORD: twenty
+      POSTGRES_USER: postgres
+    restart: always
+
+  redis:
+    image: redis:alpine
+    restart: always
+
+volumes:
+  db-data:
+  server-local-data:

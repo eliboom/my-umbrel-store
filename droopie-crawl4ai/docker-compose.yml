@@ -4,10 +4,10 @@ services:
   app_proxy:
     environment:
       APP_HOST: droopie-crawl4ai_server_1
-      APP_PORT: 8000
+      APP_PORT: 11235
 
   server:
     image: unclecode/crawl4ai:latest
     restart: on-failure
-    environment:
-      - PORT=8000
+    volumes:
+      - /dev/shm:/dev/shm

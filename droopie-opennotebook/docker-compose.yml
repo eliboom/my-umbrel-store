@@ -3,11 +3,34 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: droopie-opennotebook_server_1
-      APP_PORT: 3000
+      APP_HOST: droopie-opennotebook_open_notebook_1
+      APP_PORT: 8502
 
-  server:
-    image: lfnovo/open-notebook:latest
-    restart: on-failure
+  surrealdb:
+    image: surrealdb/surrealdb:v2
+    command: start --log info --user root --pass root rocksdb:/mydata/mydatabase.db
+    user: root
+    volumes:
+      - surreal_data:/mydata
     environment:
-      - PORT=3000
+      - SURREAL_EXPERIMENTAL_GRAPHQL=true
+    restart: always
+
+  open_notebook:
+    image: lfnovo/open_notebook:v1-latest
+    environment:
+      - OPEN_NOTEBOOK_ENCRYPTION_KEY=secure-notebook-key-umbrel-store
+      - SURREAL_URL=ws://droopie-opennotebook_surrealdb_1:8000/rpc
+      - SURREAL_USER=root
+      - SURREAL_PASSWORD=root
+      - SURREAL_NAMESPACE=open_notebook
+      - SURREAL_DATABASE=open_notebook
+    volumes:
+      - notebook_data:/app/data
+    depends_on:
+      - surrealdb
+    restart: always
+
+volumes:
+  surreal_data:
+  notebook_data:
