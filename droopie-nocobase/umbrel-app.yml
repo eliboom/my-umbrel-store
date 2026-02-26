@@ -2,7 +2,7 @@ manifestVersion: 1
 id: droopie-nocobase
 name: NocoBase
 tagline: Extensible AI-powered no-code platform
-icon: https://svgur.com/i/mvA.svg
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/droopie-nocobase.svg
 category: Business
 version: "1.0.0"
 port: 13000

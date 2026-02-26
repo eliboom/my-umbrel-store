@@ -2,7 +2,7 @@ manifestVersion: 1
 id: droopie-deerflow
 name: DeerFlow
 tagline: A community-driven Deep Research framework
-icon: https://svgur.com/i/mvA.svg
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/droopie-deerflow.svg
 category: AI
 version: "2.0.0"
 port: 8000

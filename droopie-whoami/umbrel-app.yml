@@ -2,7 +2,7 @@ manifestVersion: 1
 id: droopie-whoami
 name: Whoami
 tagline: A simple web server that exposes OS information
-icon: https://svgur.com/i/mvA.svg
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/droopie-whoami.svg
 category: Utilities
 version: "1.0.0"
 port: 4001

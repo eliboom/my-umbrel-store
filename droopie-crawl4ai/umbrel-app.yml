@@ -2,7 +2,7 @@ manifestVersion: 1
 id: droopie-crawl4ai
 name: Crawl4AI
 tagline: Open-source LLM Friendly Web Crawler
-icon: https://svgur.com/i/mvA.svg
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/droopie-crawl4ai.svg
 category: Development
 version: "1.0.0"
 port: 8000

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: droopie-plane
 name: Plane
 tagline: Open Source JIRA, Linear, Monday, and Asana Alternative
-icon: https://svgur.com/i/mvA.svg
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/droopie-plane.svg
 category: Productivity
 version: "1.0.0"
 port: 3000
