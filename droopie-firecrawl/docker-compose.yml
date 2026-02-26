@@ -8,7 +8,7 @@ services:
     container_name: droopie-firecrawl_app_proxy_1
 
   server:
-    image: ghcr.io/mendableai/firecrawl:latest
+    image: ghcr.io/firecrawl/firecrawl:latest
     restart: always
     environment:
       PORT: 3002
@@ -32,7 +32,7 @@ services:
     container_name: droopie-firecrawl_server_1
 
   playwright:
-    image: ghcr.io/mendableai/firecrawl-playwright:latest
+    image: ghcr.io/firecrawl/playwright-service:latest
     restart: always
     container_name: droopie-firecrawl_playwright_1
 
