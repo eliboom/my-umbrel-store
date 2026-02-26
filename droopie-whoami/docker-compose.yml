@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: droopie-whoami_server_1
+      APP_PORT: 80
+    
+  server:
+    image: traefik/whoami:latest
+    restart: on-failure

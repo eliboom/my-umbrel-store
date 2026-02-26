@@ -1,0 +1,24 @@
+manifestVersion: 1
+id: droopie-crawl4ai
+name: Crawl4AI
+tagline: Open-source LLM Friendly Web Crawler
+icon: https://svgur.com/i/mvA.svg
+category: Development
+version: "1.0.0"
+port: 8000
+description: >-
+  Crawl4AI is an open-source web crawler and scraper tailored for large language models (LLMs).
+  It simplifies the extraction of structured and unstructured data from the web.
+developer: unclecode
+website: https://crawl4ai.com
+submitter: Droopie
+submission: https://github.com/unclecode/crawl4ai
+repo: https://github.com/unclecode/crawl4ai
+support: https://github.com/unclecode/crawl4ai/issues
+gallery: []
+releaseNotes: >-
+  Initial release.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

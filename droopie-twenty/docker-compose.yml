@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: droopie-twenty_server_1
+      APP_PORT: 3000
+
+  server:
+    image: twentycrm/twenty:latest
+    restart: on-failure
+    environment:
+      - PORT=3000

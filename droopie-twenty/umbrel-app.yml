@@ -1,0 +1,23 @@
+manifestVersion: 1
+id: droopie-twenty
+name: Twenty
+tagline: The #1 Open-Source CRM
+icon: https://svgur.com/i/mvA.svg
+category: Business
+version: "0.4.0"
+port: 3000
+description: >-
+  Twenty is a modern, open-source alternative to Salesforce. It allows you to track and manage your customer relationships with full data ownership.
+developer: twentyhq
+website: https://twenty.com
+submitter: Droopie
+submission: https://github.com/twentyhq/twenty
+repo: https://github.com/twentyhq/twenty
+support: https://github.com/twentyhq/twenty/issues
+gallery: []
+releaseNotes: >-
+  Initial release.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

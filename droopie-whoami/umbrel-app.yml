@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: droopie-whoami
+name: Whoami
+tagline: A simple web server that exposes OS information
+icon: https://svgur.com/i/mvA.svg
+category: Utilities
+version: "1.0.0"
+port: 4001
+description: >-
+  Tiny Go webserver that prints os information and HTTP request to output.
+  Useful for testing app routing and network configuration on your Umbrel.
+
+developer: Traefik
+website: https://github.com/traefik/whoami
+submitter: Droopie
+submission: https://github.com/traefik/whoami
+repo: https://github.com/traefik/whoami
+support: https://github.com/traefik/whoami/issues
+gallery: []
+releaseNotes: >-
+  Initial release.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

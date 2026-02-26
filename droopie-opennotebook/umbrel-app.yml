@@ -1,0 +1,24 @@
+manifestVersion: 1
+id: droopie-opennotebook
+name: Open Notebook
+tagline: AI-powered note-taking platform
+icon: https://svgur.com/i/mvA.svg
+category: Productivity
+version: "1.0.0"
+port: 3000
+description: >-
+  A powerful open-source, AI-powered note-taking and research platform that respects your privacy.
+  Alternative to Google's NotebookLM.
+developer: lfnovo
+website: https://github.com/lfnovo/open-notebook
+submitter: Droopie
+submission: https://github.com/lfnovo/open-notebook
+repo: https://github.com/lfnovo/open-notebook
+support: https://github.com/lfnovo/open-notebook/issues
+gallery: []
+releaseNotes: >-
+  Initial release.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
