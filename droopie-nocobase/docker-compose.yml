@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   server:
-    image: nocobase/nocobase:latest-sqlite
+    image: nocobase/nocobase:latest
     restart: on-failure
     environment:
       - APP_KEY=6dab6dc3f86631bb3962cd8854211d0df71fe361631d52ae9e10c60133bce9af
