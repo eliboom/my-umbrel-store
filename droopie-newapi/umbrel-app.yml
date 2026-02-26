@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: droopie-newapi
+category: development
+name: New API
+version: "latest"
+description: >-
+  Next generation AI Gateway and LLM API management system. Manage user quotas, API keys, multiple LLM models, and routing strategies from a powerful dashboard.
+developer: QuantumNous
+website: https://newapi.ai
+submitter: Droopie
+submission: https://github.com/eliboom/my-umbrel-store
+repo: https://github.com/QuantumNous/new-api
+support: https://github.com/QuantumNous/new-api/issues
+port: 3000
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/newapi.svg
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
+path: ""
+defaultUsername: root
+defaultPassword: 123456

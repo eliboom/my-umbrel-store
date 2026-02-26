@@ -1,0 +1,60 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: droopie-firecrawl_server_1
+      APP_PORT: 3002
+    container_name: droopie-firecrawl_app_proxy_1
+
+  server:
+    image: ghcr.io/mendableai/firecrawl:latest
+    restart: always
+    environment:
+      PORT: 3002
+      REDIS_URL: redis://droopie-firecrawl_redis_1:6379
+      REDIS_RATE_LIMIT_URL: redis://droopie-firecrawl_redis_1:6379
+      PLAYWRIGHT_MICROSERVICE_URL: http://droopie-firecrawl_playwright_1:3000/scrape
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: firecrawl_secret
+      POSTGRES_DB: firecrawl
+      POSTGRES_HOST: droopie-firecrawl_db_1
+      POSTGRES_PORT: 5432
+      USE_DB_AUTHENTICATION: "true"
+      NUM_WORKERS_PER_QUEUE: 8
+      CRAWL_CONCURRENT_REQUESTS: 10
+      MAX_CONCURRENT_JOBS: 5
+      BROWSER_POOL_SIZE: 5
+    depends_on:
+      - redis
+      - db
+      - playwright
+    container_name: droopie-firecrawl_server_1
+
+  playwright:
+    image: ghcr.io/mendableai/firecrawl-playwright:latest
+    restart: always
+    container_name: droopie-firecrawl_playwright_1
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: firecrawl_secret
+      POSTGRES_DB: firecrawl
+    volumes:
+      - firecrawl-db-data:/var/lib/postgresql/data
+    container_name: droopie-firecrawl_db_1
+
+  redis:
+    image: redis:alpine
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - firecrawl-redis-data:/data
+    container_name: droopie-firecrawl_redis_1
+
+volumes:
+  firecrawl-db-data:
+  firecrawl-redis-data:

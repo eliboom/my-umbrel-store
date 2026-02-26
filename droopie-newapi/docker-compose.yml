@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: droopie-newapi_server_1
+      APP_PORT: 3000
+    container_name: droopie-newapi_app_proxy_1
+
+  server:
+    image: calciumion/new-api:latest
+    restart: always
+    command: --log-dir /app/logs
+    environment:
+      - SQL_DSN=postgresql://root:newapi_secret@droopie-newapi_db_1:5432/new-api
+      - REDIS_CONN_STRING=redis://droopie-newapi_redis_1:6379
+      - TZ=Asia/Shanghai
+      - ERROR_LOG_ENABLED=true
+      - BATCH_UPDATE_ENABLED=true
+    volumes:
+      - newapi-data:/data
+      - newapi-logs:/app/logs
+    depends_on:
+      - redis
+      - db
+    container_name: droopie-newapi_server_1
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: newapi_secret
+      POSTGRES_DB: new-api
+    volumes:
+      - newapi-db-data:/var/lib/postgresql/data
+    container_name: droopie-newapi_db_1
+
+  redis:
+    image: redis:alpine
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - newapi-redis-data:/data
+    container_name: droopie-newapi_redis_1
+
+volumes:
+  newapi-data:
+  newapi-logs:
+  newapi-db-data:
+  newapi-redis-data:

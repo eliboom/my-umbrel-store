@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: droopie-firecrawl
+category: development
+name: Firecrawl
+version: "latest"
+description: >-
+  Turn websites into LLM-ready markdown or structured data. Firecrawl is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data.
+developer: Mendable.ai
+website: https://firecrawl.dev
+submitter: Droopie
+submission: https://github.com/eliboom/my-umbrel-store
+repo: https://github.com/mendableai/firecrawl
+support: https://github.com/mendableai/firecrawl/issues
+port: 3002
+icon: https://raw.githubusercontent.com/eliboom/my-umbrel-store/master/icons/firecrawl.svg
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
